@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lovely Tasks 🌸</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+<body>
+
+  <div class="bg-decor bg-decor-1"></div>
+  <div class="bg-decor bg-decor-2"></div>
+  <div class="bg-decor bg-decor-3"></div>
+
+  <div class="app-container">
+
+    <header class="app-header">
+      <div class="header-top">
+        <div class="logo-area">
+          <div class="logo-icon">🌸</div>
+          <div>
+            <h1 class="brand-title">Lovely Tasks <span style="font-size: 1.3rem;">✨</span></h1>
+            <p class="brand-subtitle">Organize your dreams with love &amp; pastel vibes 💖</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <span class="badge date-badge" id="currentDateBadge">📅 Today</span>
+        </div>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-header">
+          <span id="progressSummary">Tasks: 0 / 0 completed 🌷</span>
+          <span class="progress-quote" id="progressQuote">Make today radiant! 💖</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2 class="card-title"><span>🎀</span> Add a New Lovely Task</h2>
+      <form class="task-form" id="todoForm" onsubmit="handleCreateTodo(event)">
+        <div class="input-row-main">
+          <input 
+            type="text" 
+            id="todoTitle" 
+            class="todo-input" 
+            placeholder="What sweet thing are we accomplishing today? 🌸" 
+            autocomplete="off" 
+            required 
+          />
+          <button type="submit" class="btn-add">
+            <span>✨</span> Add Task
+          </button>
+        </div>
+
+        <div class="form-details-row">
+          <div class="select-wrapper">
+            <select id="todoCategory" class="select-control">
+              <option value="Personal 🌷">🌷 Personal</option>
+              <option value="Work 💖">💖 Work</option>
+              <option value="Study 🎀">🎀 Study</option>
+              <option value="Shopping 🧁">🧁 Shopping</option>
+              <option value="Self-Care 🛁">🛁 Self-Care</option>
+              <option value="Fitness 🏃‍♀️">🏃‍♀️ Fitness</option>
+            </select>
+          </div>
+
+          <div class="select-wrapper">
+            <select id="todoPriority" class="select-control">
+              <option value="MEDIUM">✨ Medium Priority</option>
+              <option value="HIGH">🔥 High Priority</option>
+              <option value="LOW">🍃 Low Priority</option>
+            </select>
+          </div>
+
+          <div class="select-wrapper" style="max-width: 170px;">
+            <input type="text" id="todoDueDate" class="select-control date-input" placeholder="Due (e.g. Today 💖)" value="Today">
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <div class="control-bar">
+      <div class="filter-chips">
+        <button class="chip active" onclick="setFilter('all', this)" id="filterAll">All 🌸 (<span id="countAll">0</span>)</button>
+        <button class="chip" onclick="setFilter('active', this)" id="filterActive">Active ✨ (<span id="countActive">0</span>)</button>
+        <button class="chip" onclick="setFilter('completed', this)" id="filterCompleted">Done 💖 (<span id="countCompleted">0</span>)</button>
+        <button class="chip" onclick="setFilter('high', this)" id="filterHigh">High Priority 🔥 (<span id="countHigh">0</span>)</button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search tasks..." oninput="handleSearch(this.value)">
+      </div>
+    </div>
+
+    <main class="todos-list" id="todosContainer"></main>
+
+    <footer class="app-footer">
+      <p>Lovely Tasks &bull; Keep blooming beautifully &hearts;</p>
+    </footer>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
